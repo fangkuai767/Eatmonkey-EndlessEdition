@@ -175,7 +175,7 @@ function SubmitResults() {
 }
 
 function creatTimeText(n) {
-    return '&nbsp;TIME:'+n;
+    return '&nbsp;TIME:;无限';
 }
 
 let _ttreg = / t{1,2}(\d+)/,
