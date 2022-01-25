@@ -58,7 +58,7 @@ let refreshSizeTime;
 
 function refreshSize() {
     clearTimeout(refreshSizeTime);
-    refreshSizeTime = setTimeout(_refreshSize, 999999999999999999999999);
+    refreshSizeTime = setTimeout(_refreshSize, 20);
 }
 
 function _refreshSize() {
