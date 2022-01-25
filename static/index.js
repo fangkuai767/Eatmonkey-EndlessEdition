@@ -174,20 +174,9 @@ function SubmitResults() {
     }
 }
 
-function gameTime() {
-    _gameTimeNum--;
-    if (_gameTimeNum <= 0) {
-        GameTimeLayer.innerHTML = '&nbsp;&nbsp;&nbsp;&nbsp;时间到！';
-        gameOver();
-        GameLayerBG.className += ' flash';
-        createjs.Sound.play("end");
-    } else {
-        GameTimeLayer.innerHTML = creatTimeText(_gameTimeNum);
-    }
-}
 
 function creatTimeText(n) {
-    return '无限时间，无限挑战！';
+    return '&nbsp;TIME:无限';
 }
 let _ttreg = / t{1,2}(\d+)/,
     _clearttClsReg = / t{1,2}\d+| bad/;
