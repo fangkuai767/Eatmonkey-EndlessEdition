@@ -176,7 +176,7 @@ function SubmitResults() {
 
 
 function creatTimeText(n) {
-    return '&nbsp;TIME:'+n;
+    return '&nbsp;TIME:无限';
 }
 let _ttreg = / t{1,2}(\d+)/,
     _clearttClsReg = / t{1,2}\d+| bad/;
@@ -328,7 +328,7 @@ function backBtn() {
 function shareText(score) {
     let date2 = new Date();
     deviation_time = (date2.getTime() - _date1.getTime())
-    if (deviation_time > 23000) {
+    if (deviation_time > 230) {
         return '倒计时多了' + ((deviation_time / 1000) - 20).toFixed(2) + "s";
     }
     SubmitResults();
