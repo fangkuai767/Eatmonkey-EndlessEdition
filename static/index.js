@@ -124,7 +124,7 @@ function gameRestart() {
     _gameScore = 0;
     _gameOver = false;
     _gameStart = false;
-    _gameTimeNum = 23000;
+    _gameTimeNum = 23001;
     GameTimeLayer.innerHTML = creatTimeText(_gameTimeNum);
     countBlockSize();
     refreshGameLayer(GameLayer[0]);
@@ -176,7 +176,7 @@ function SubmitResults() {
 
 
 function creatTimeText(n) {
-    return '&nbsp;TIME:无限';
+    return '&nbsp;TIME:'+n;
 }
 let _ttreg = / t{1,2}(\d+)/,
     _clearttClsReg = / t{1,2}\d+| bad/;
