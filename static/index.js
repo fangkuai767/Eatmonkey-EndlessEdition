@@ -124,7 +124,7 @@ function gameRestart() {
     _gameScore = 0;
     _gameOver = false;
     _gameStart = false;
-    _gameTimeNum = 20;
+    _gameTimeNum = 99999999999999999999999999999999999999999999999999999999999999999999999999;
     GameTimeLayer.innerHTML = creatTimeText(_gameTimeNum);
     countBlockSize();
     refreshGameLayer(GameLayer[0]);
@@ -174,21 +174,6 @@ function SubmitResults() {
     }
 }
 
-function gameTime() {
-    _gameTimeNum--;
-    if (_gameTimeNum <= 0) {
-        GameTimeLayer.innerHTML = '&nbsp;&nbsp;&nbsp;&nbsp;时间到！';
-        gameOver();
-        GameLayerBG.className += ' flash';
-        createjs.Sound.play("end");
-    } else {
-        GameTimeLayer.innerHTML = creatTimeText(_gameTimeNum);
-    }
-}
-
-function creatTimeText(n) {
-    return '&nbsp;TIME:' + n;
-}
 let _ttreg = / t{1,2}(\d+)/,
     _clearttClsReg = / t{1,2}\d+| bad/;
 
