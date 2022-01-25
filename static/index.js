@@ -124,7 +124,7 @@ function gameRestart() {
     _gameScore = 0;
     _gameOver = false;
     _gameStart = false;
-    _gameTimeNum = 20;
+    _gameTimeNum = 23000;
     GameTimeLayer.innerHTML = creatTimeText(_gameTimeNum);
     countBlockSize();
     refreshGameLayer(GameLayer[0]);
@@ -187,7 +187,7 @@ function gameTime() {
 }
 
 function creatTimeText(n) {
-    return '&nbsp;TIME:' + n;
+    return '&nbsp;TIME:无限';
 }
 let _ttreg = / t{1,2}(\d+)/,
     _clearttClsReg = / t{1,2}\d+| bad/;
@@ -343,11 +343,12 @@ function shareText(score) {
         return '倒计时多了' + ((deviation_time / 1000) - 20).toFixed(2) + "s";
     }
     SubmitResults();
-    if (score <= 49) return '试着好好练一下？';
-    if (score <= 99) return 'TCL';
-    if (score <= 149) return 'TQL';
-    if (score <= 199) return '您';
-    return '人？';
+    if (score <= 50) return '猴子都瞧不起你';
+    if (score <= 100) return '勉勉强强';
+    if (score <= 250) return '优秀的猴子';
+    if (score <= 500) return '孙悟空逼着你当他徒弟';
+    if (score <= 750) return '————猴子的力量是有极限的';
+    else return '这已经不是碳基生物了';
 }
 
 function toStr(obj) {
