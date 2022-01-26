@@ -291,24 +291,7 @@ function showWelcomeLayer() {
     l.style.display = 'block';
 }
 
-function showGameScoreLayer() {
-    let l = document.getElementById('GameScoreLayer');
-    let c = document.getElementById(_gameBBList[_gameBBListIndex - 1].id).className.match(_ttreg)[1];
-    l.className = l.className.replace(/bgc\d/, 'bgc' + c);
-    document.getElementById('GameScoreLayer-text').innerHTML = shareText(_gameScore);
-    let score_text = '得分&nbsp;&nbsp;';
-    score_text += deviation_time < 23000 ? _gameScore : "<span style='color:red;'>" + _gameScore + "</span>";
-    document.getElementById('GameScoreLayer-score').innerHTML = score_text;
-    let bast = cookie('bast-score');
-    if (deviation_time < 23000) {
-        if (!bast || _gameScore > bast) {
-            bast = _gameScore;
-            cookie('bast-score', bast, 100);
-        }
-    }
-    document.getElementById('GameScoreLayer-bast').innerHTML = '最佳&nbsp;&nbsp;' + bast;
-    l.style.display = 'block';
-}
+
 
 function hideGameScoreLayer() {
     let l = document.getElementById('GameScoreLayer');
