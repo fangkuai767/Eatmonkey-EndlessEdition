@@ -291,7 +291,24 @@ function showWelcomeLayer() {
     l.style.display = 'block';
 }
 
-
+function showGameScoreLayer() {
+    let l = document.getElementById('GameScoreLayer');
+    let c = document.getElementById(_gameBBList[_gameBBListIndex - 1].id).className.match(_ttreg)[1];
+    l.className = l.className.replace(/bgc\d/, 'bgc' + c);
+    document.getElementById('GameScoreLayer-text').innerHTML = shareText(_gameScore);
+    let score_text = '得分&nbsp;&nbsp;';
+    score_text += deviation_time < 23000 ? _gameScore : "<span style='color:red;'>" + _gameScore + "</span>";
+    document.getElementById('GameScoreLayer-score').innerHTML = score_text;
+    let bast = cookie('bast-score');
+    if (deviation_time < 23000) {
+        if (!bast || _gameScore > bast) {
+            bast = _gameScore;
+            cookie('bast-score', bast, 100);
+        }
+    }
+    document.getElementById('GameScoreLayer-bast').innerHTML = '最佳&nbsp;&nbsp;' + bast;
+    l.style.display = 'block';
+}
 
 function hideGameScoreLayer() {
     let l = document.getElementById('GameScoreLayer');
@@ -312,9 +329,6 @@ function backBtn() {
 function shareText(score) {
     let date2 = new Date();
     deviation_time = (date2.getTime() - _date1.getTime())
-    if (deviation_time > 23000) {
-        return '倒计时多了' + ((deviation_time / 1000) - 20).toFixed(2) + "s";
-    }
     SubmitResults();
     if (score <= 50) return '猴子都瞧不起你';
     if (score <= 100) return '勉勉强强';
